@@ -1,7 +1,28 @@
+* {
+    background-color: dimgrey;
+}
+
 .grid {
     border-collapse: collapse;
     width: 250px;
     height: 250px;
+}
+
+.retry {
+    display: block;
+    margin: 3vh auto;
+    background-color: cornsilk;
+    border-width: 0px;
+    border-radius: 20px;
+    width: 150px;
+    height: 70px;
+    font-size: 28px;
+    font-weight: bold;
+    color: darkslategrey
+}
+.retry:hover {
+    background-color: bisque;
+    box-shadow: 0px 0px 5px 2px lightgreen;
 }
 
 .grid-container {
@@ -10,9 +31,12 @@
     grid-template-rows: repeat(5, 1fr);
     justify-items: center;
     align-items: center;
-    margin: 50px auto;
+    margin: auto;
     width: 320px;
     height: 320px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: bisque;
 }
 .row-label {
     grid-column: 1;
@@ -23,9 +47,15 @@
 }
 
 .score {
-    margin: auto;
-    padding-top: 20vh;
+    margin: 20vh auto auto;
     text-align: center;
+    width: 320px;
+    height: 30px;
+    background-color: bisque;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 30px;
+    color: darkslategrey
 }
 
 .background-square {
@@ -62,18 +92,27 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
+    grid-gap: 10px;
+    grid-gap: 10px;
     gap: 10px;
     justify-items: center;
     align-items: center;
-    margin: 50px auto;
+    margin: auto;
     width: 200px;
+    padding-right: 90px;
+    padding-left: 90px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: bisque;
 }
 
 .square {
     width: 50px;
     height: 50px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid darkslategrey;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
@@ -89,10 +128,11 @@
 .locked {
     border-width: 4px;
     border-color: darkred;
+    border-style: dashed;
 }
 
 #clicked {
-    background-color: black;
+    background-color: darkslategrey;
 }
 
 /* Colors */
@@ -114,7 +154,7 @@
 }
 
 #treasure {
-    background-color: gold;
+    background-color: khaki;
 }
 
 #empty {

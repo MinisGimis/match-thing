@@ -217,7 +217,7 @@ function App() {
     console.log("checked")
     setLockedValue(lockedValue + getRandomInt(500))
     for (let i = 0; i < ROWS*COLUMNS; i++) {
-      if (playGrid[i] == "empty") {
+      if (playGrid[i] == "empty" && !document.getElementsByClassName(i.toString())[0].classList.contains("locked")) {
         failed = false;
       }
       result = Math.max(result, checkBoard(i, playGrid[i]));
@@ -280,7 +280,10 @@ function App() {
 
   return (
     <div>
-      <h1 className={"score"}>Score: {score}</h1>
+      <div>
+        <h1 className={"score"}>Score: {score}</h1> 
+      </div>
+      
       <div className={"game"}>
         <div className="grid-container play-grid">
           {playGrid.map((square, index) => (
@@ -310,7 +313,7 @@ function App() {
       </div>
       {lost && <button className={"retry"} onClick={()=> {
         resetGame()
-      }}>you lost</button>}
+      }}>retry</button>}
     </div>
   );
 }
