@@ -6,7 +6,7 @@ const COLUMNS = 5;
 
 function getRandomInt(max) {
   let retVal = Math.floor(Math.random() * max)
-  ////console.log("random is " + retVal)
+  //////console.log("random is " + retVal)
   return retVal;
 }
 
@@ -32,7 +32,7 @@ function App() {
   const [lockedValue, setLockedValue] = useState(0)
 
   const resetGame = () => {
-    //console.log('reset')
+    ////console.log('reset')
     setInventoryGrid(Array(3).fill('empty'))
     setPlayGrid(Array(25).fill('empty'))
     setScore(0)
@@ -64,16 +64,16 @@ function App() {
   
   const handleDrop = (e, index) => {
     e.preventDefault();
-    //console.log(e.target)
+    ////console.log(e.target)
 
     if (e.target.id !== "empty") {
-      //console.log("empty");
+      ////console.log("empty");
     }
     else if (getColumn(index) === lockedColumn && getRow(index) === lockedRow) {
-      //console.log("locked")
+      ////console.log("locked")
     }
     else if (getColumn(index) === lockedColumn2 && getRow(index) === lockedRow2) {
-      //console.log("locked")
+      ////console.log("locked")
     }
     else {
       setInventoryGrid(prevGrid => {
@@ -102,7 +102,7 @@ function App() {
       }
       return newGrid
     })
-    //console.log("vertical cleared")
+    ////console.log("vertical cleared")
   }
 
   const clearHorizontal = (index) => {
@@ -113,7 +113,7 @@ function App() {
       }
       return newGrid
     })
-    //console.log("horizontal cleared")
+    ////console.log("horizontal cleared")
   }
 
   const checkBoard = (index, newColour) => {
@@ -121,9 +121,9 @@ function App() {
     let locked1 = lockedColumn + lockedRow*ROWS
     let locked2 = lockedColumn2 + lockedRow2*ROWS
     let temp = document.getElementsByClassName("locked");
-    //console.log("bbbb", temp)
+    ////console.log("bbbb", temp)
     for (let i = 0; i < temp.length; i++) {
-      //console.log("aaaaaaaaa", temp[i])
+      ////console.log("aaaaaaaaa", temp[i])
       if (temp[i]) {
         if (!temp[i].classList.contains(locked1.toString()) && !temp[i].classList.contains(locked2.toString())) {
           temp[i].classList.remove("locked")
@@ -132,8 +132,8 @@ function App() {
     }
     let element1 = document.getElementsByClassName(locked1.toString())
     let element2 = document.getElementsByClassName(locked2.toString())
-    //console.log(element1, "element1")
-    //console.log(element2, "element2")
+    ////console.log(element1, "element1")
+    ////console.log(element2, "element2")
     if (element1[0] && !element1[0].classList.contains("locked")) {
       element1[0].classList.add("locked")
     }
@@ -147,7 +147,7 @@ function App() {
     if (newColour === "empty") {
       return 0
     }
-    //console.log(getRow(index), getColumn(index));
+    ////console.log(getRow(index), getColumn(index));
 
     //check vertical
     let vertical = true;
@@ -158,7 +158,7 @@ function App() {
       }
     }
 
-    //console.log("vertical", vertical)
+    ////console.log("vertical", vertical)
 
     //check horizontal
     let horizontal = true;
@@ -184,7 +184,7 @@ function App() {
       clearHorizontal(index)
       return 1
     }
-    //console.log("horizontal", horizontal)
+    ////console.log("horizontal", horizontal)
     return 0;
   }
 
@@ -208,7 +208,7 @@ function App() {
     }
     //console.log(lockedColumn, lockedRow, lockedValue)
 
-  }, lockedValue)
+  }, [lockedValue])
 
   useEffect(() => {
     let result = 0;
@@ -243,13 +243,13 @@ function App() {
       setInventoryGrid(prevGrid => {
         
         return prevGrid.map(square => {
-          ////console.log ((Math.log10(score))/100);
+          //////console.log ((Math.log10(score))/100);
           if (square !== "empty") {
             return square
           }
           
           let roll = Math.random();
-          //console.log(0.15 + (Math.log10(score+1))/100)
+          ////console.log(0.15 + (Math.log10(score+1))/100)
           if (roll < (Math.log10(score))/100) {
             return 'treasure'
           }
@@ -313,6 +313,7 @@ function App() {
       {lost && <button className={"retry"} onClick={()=> {
         resetGame()
       }}>retry</button>}
+      <p className="instructions">Drag and drop any of the 3 coloured squares onto an empty spot on the board. Certain squares will randomly be locked, meaning you will not be able to change its colour. Matching 5 of the same colours in a line removes them and earns you +100 score!</p>
     </div>
   );
 }
