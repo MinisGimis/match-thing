@@ -141,7 +141,6 @@ function App() {
       element2[0].classList.add("locked")
     }
 
-    let addScore = 0;
     if (index === null) {
       return 0
     }
