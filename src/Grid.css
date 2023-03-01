@@ -1,0 +1,161 @@
+.grid {
+    border-collapse: collapse;
+    width: 250px;
+    height: 250px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin: 50px auto;
+    width: 320px;
+    height: 320px;
+}
+.row-label {
+    grid-column: 1;
+}
+
+.column-label {
+    grid-row: 1;
+}
+
+.score {
+    margin: auto;
+    padding-top: 20vh;
+    text-align: center;
+}
+
+.background-square {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    animation: bounce 5s infinite;
+  }
+  
+  @keyframes bounce {
+    0% {
+        transform: translate(0, 0) rotate(45deg);
+    }
+    25% {
+        transform: translate(1000px, 1000px) rotate(45deg);
+    }
+    50% {
+        transform: translate(0, 0) rotate(45deg);
+    }
+    75% {
+        transform: translate(0, 0) rotate(45deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(45deg);
+    }
+  }
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    margin: 50px auto;
+    width: 200px;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.square:hover {
+    box-shadow: 0px 0px 5px 2px lightgreen;
+}
+
+.square.locked:hover {
+    box-shadow: 0px 0px 5px 2px darkred;
+}
+
+.locked {
+    border-width: 4px;
+    border-color: darkred;
+}
+
+#clicked {
+    background-color: black;
+}
+
+/* Colors */
+#red {
+    background-color: lightcoral;
+}
+
+#blue {
+    background-color: lightskyblue;
+}
+#green {
+    background-color: lightsalmon;
+}
+#yellow {
+    background-color: lightseagreen;
+}
+#purple {
+    background-color: palevioletred;
+}
+
+#treasure {
+    background-color: gold;
+}
+
+#empty {
+    background-color: white;
+}
+
+.circle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+  
+.circle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.garbage {
+    margin: auto
+}
+
+.gear-row-1 {
+    width: 160px;
+    height: 60px;
+}
+.gear-row-2 {
+    width: 300px;
+    height: 100px;
+}
+.gear-row-3 {
+    width: 400px;
+    height: 60px;
+}
+.gear-row-4 {
+    width: 300px;
+    height: 100px;
+}
+.gear-row-5 {
+    width: 160px;
+    height: 60px;
+}
