@@ -358,6 +358,12 @@ function App() {
         newGrid[index] = newColour
         return newGrid
       });
+
+      if (document.getElementById("empty").length == 0) {
+        alert("Game Over")
+      }
+
+
     }
     setScore(score + bonus)
     ////console.log("horizontal", horizontal)
